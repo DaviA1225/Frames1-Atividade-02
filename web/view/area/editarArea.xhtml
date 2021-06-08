@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/template.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="corpo">
+        <div class="container">
+            <f:metadata>
+                <f:viewParam value="#{areaController.areaModel.idArea}" name="idArea"/>
+                <f:viewAction action="#{areaController.getArea()}" />
+            </f:metadata>
+            <h1>Editar Área</h1>
+            <h:form>
+                <h:inputHidden id="idArea" value="#{areaController.areaModel.idArea}"/>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="nomeArea">Nome da Area</label>                
+                        <h:inputText class="form-control" id="areaNome" value="#{areaController.areaModel.areaNome}"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <h:commandButton class="btn btn-secondary" value="voltar" action="buscarArea.xhtml"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <h:commandButton class="btn btn-primary" value="salvar alterações" action="#{areaController.salvarEdicao()}"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
